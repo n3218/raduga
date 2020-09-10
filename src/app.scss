@@ -1,0 +1,57 @@
+$special: Oswald, sans-serif;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+p {
+  color: #787878;
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+nav {
+  font-family: $special !important;
+  font-weight: 400;
+}
+
+footer nav * {
+  font-family: $special !important;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 4em;
+  letter-spacing: -3px;
+  color: #00bcd4;
+}
+
+h2 {
+  font-family: $special;
+  font-weight: 400;
+  font-size: 2.5em;
+  color: #0fabbc;
+}
+
+.special {
+  font-family: $special;
+}
+
+.scale {
+  transition: transform 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+
+  &:hover {
+    background-color: #096f7a;
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.text-left {
+  text-align: left;
+}

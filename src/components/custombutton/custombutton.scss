@@ -1,0 +1,14 @@
+.custombutton {
+  padding: 0 35px;
+  min-width: 150px;
+  border: 1px solid #dd2c00;
+  height: 50px;
+  color: white;
+  background-color: #ff5722;
+  font-size: 1.1em;
+  margin-right: 20px;
+  &:hover {
+    color: #dd2c00;
+    background-color: white;
+  }
+}
