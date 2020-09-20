@@ -1,14 +1,18 @@
+@import "../../common-variables";
+
 .custombutton {
-  padding: 0 35px;
+  padding: 0 20px;
   min-width: 150px;
-  border: 1px solid #dd2c00;
-  height: 50px;
-  color: white;
-  background-color: #ff5722;
-  font-size: 1.1em;
+  border: 1px solid $color-attention-light;
+  height: 30px;
+  color: $color-lightest;
+  background-color: $color-attention-light;
+  font-size: 0.8em;
   margin-right: 20px;
+  margin-bottom: 10px;
   &:hover {
-    color: #dd2c00;
+    color: $color-attention;
+    border: 1px solid $color-attention;
     background-color: white;
   }
 }

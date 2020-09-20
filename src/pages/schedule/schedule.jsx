@@ -1,41 +1,46 @@
 import React, { useState } from "react"
+import { useEffect } from "react"
 
+import "./schedule.scss"
+import { createClassDocument, getClasses } from "../../firebase/firebase.utils"
 import CustomInput from "../../components/custominput/custominput"
 import CustomButton from "../../components/custombutton/custombutton"
-import "./schedule.scss"
 import Layout from "../../components/layout/layout"
-import { createClassDocument, getClasses } from "../../firebase/firebase.utils"
-import { useEffect } from "react"
+
+export const CustomSpan = ({ field, classId, updateInfo, children }) => {
+  return (
+    <span contentEditable suppressContentEditableWarning onBlur={e => updateInfo(field, classId, e)}>
+      {children}
+    </span>
+  )
+}
 
 const Schedule = () => {
   const initialState = {
-    day: "",
-    startTime: "",
-    endTime: "",
-    title: "",
-    minAge: "",
-    maxAge: "",
-    teacher: "",
-    comment: ""
-  }
-
-  const initialSchedule = {
     classes: []
   }
 
   const [state, setState] = useState(initialState)
-  const [schedule, setSchedule] = useState(initialSchedule)
 
-  const res = async () => {
-    try {
-      const response = await getClasses()
-      setSchedule({ classes: [...response] })
-    } catch (err) {
-      console.log("error fetching classes getClasses. ", err)
-    }
+  const days = {
+    1: "Понедельник",
+    2: "Вторник",
+    3: "Среда",
+    4: "Четверг",
+    5: "Пятница",
+    6: "Суббота",
+    7: "Воскресенье"
   }
 
-  useEffect(() => {
+  useEffect(state => {
+    const res = async () => {
+      try {
+        const response = await getClasses()
+        setState({ ...state, classes: [...response] })
+      } catch (err) {
+        console.log("error fetching classes getClasses. ", err)
+      }
+    }
     res()
   }, [])
 
@@ -46,30 +51,24 @@ const Schedule = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log("handleSubmit", state)
-    createClassDocument(state)
-    setSchedule({ classes: [...schedule.classes, state] })
+    const { classId, ...otherData } = state
+    createClassDocument(classId, otherData)
     setState(initialState)
   }
 
-  // const sortedArr = schedule.classes.sort((a, b) => {
-  //   var valA = a.day
-  //   var valB = b.day
-  //   if (valA < valB) {
-  //     return -1
-  //   } else if (valA > valB) {
-  //     return 1
-  //   }
-  //   return 0
-  // })
+  const updateInfo = (field, classId, e) => {
+    const { innerText } = e.target
+    let tempClasses = state.classes
+    let classIndex = tempClasses.findIndex(el => el.classId === classId)
+    tempClasses[classIndex][field] = innerText
+    setState({ ...state, classes: tempClasses })
+  }
 
-  const editClass = e => "contentEditable suppressContentEditableWarning"
-
-  // onBlur={e => editClass(field, e.target.innerText, item.aptId)}
+  console.log("state", state)
 
   return (
     <Layout title="Schedule">
-      <table className="scheduleTable">
+      <table className="schedule-table">
         <thead>
           <tr>
             <th>День недели</th>
@@ -81,17 +80,31 @@ const Schedule = () => {
           </tr>
         </thead>
         <tbody>
-          {schedule.classes.map((doc, i) => (
-            <tr key={i}>
-              <td>{doc.day}</td>
+          {state.classes.map(doc => (
+            <tr key={doc.classId}>
+              <td>{days[doc.day]}</td>
               <td>
                 {doc.startTime} - {doc.endTime}
               </td>
               <td className="text-left">{doc.title}</td>
-              <td>{doc.minAge && doc.maxAge && `${doc.minAge} - ${doc.maxAge} лет`}</td>
-              <td>{doc.teacher && doc.teacher}</td>
+              <td>
+                <CustomSpan field="teacher" classId={doc.classId} updateInfo={updateInfo}>
+                  {doc.minAge && "от " + doc.minAge}
+                </CustomSpan>
+                <CustomSpan field="teacher" classId={doc.classId} updateInfo={updateInfo}>
+                  {doc.maxAge && " до " + doc.maxAge}
+                </CustomSpan>
+                {doc.minAge | doc.maxAge && " лет"}
+              </td>
+              <td>
+                <CustomSpan field="teacher" classId={doc.classId} updateInfo={updateInfo}>
+                  {doc.teacher && doc.teacher}
+                </CustomSpan>
+              </td>
               <td className="text-left">
-                {doc.comment && doc.comment} <button onClick={editClass(doc)}>Edit</button>
+                <CustomSpan field="comment" classId={doc.classId} updateInfo={updateInfo}>
+                  {doc.comment}
+                </CustomSpan>
               </td>
             </tr>
           ))}
@@ -101,6 +114,7 @@ const Schedule = () => {
       <form onSubmit={handleSubmit} className="addClassForm">
         <div className="inputgroup">
           <select value={state.day} onChange={handleChange} name="day" required>
+            <option>День недели</option>
             <option value="1">Понедельник</option>
             <option value="2">Вторник</option>
             <option value="3">Среда</option>

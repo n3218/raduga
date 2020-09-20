@@ -1,26 +1,70 @@
+@import "../../common-variables";
+
 .text-block {
   display: flex;
   flex-direction: row;
-  > *:first-child {
-    border-right: 10px solid #00bcd4;
+  align-items: center;
+
+  .text-block_text {
+    width: auto;
+    margin: 40px;
   }
-  .text {
+
+  .text-block_image {
     width: 50%;
-    background: #fafafa;
-    padding: 0 30px;
-    * {
-      max-width: 408px;
-      margin: 0 auto;
-      padding: 60px 0;
-    }
-  }
-  .image {
-    width: 50vw;
     display: block;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    // background-color: #efefef;
+    min-height: 500px;
+  }
+}
+
+.small-text-blocks {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .small-text-block {
+    color: $color-dark;
+    background-color: white;
+    @include p;
+    text-align: center;
+    border-bottom: 10px solid $color-light;
+    padding: 0;
+    margin: 0;
+    flex: 0 0 24%;
+
+    .small-text-block_title {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: $color-special;
+      text-align: center;
+      margin: 20px;
+      font-family: $font-special;
+    }
+
+    .small-text-block_text {
+      margin: 20px;
+    }
+
+    .small-text-block_img {
+      padding-bottom: 70%;
+      overflow: hidden;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; // fit / contain / none / cover
+        // object-position: 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 }

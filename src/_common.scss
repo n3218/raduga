@@ -1,0 +1,99 @@
+@import "./_common-variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  font-family: $font-regular;
+  display: block;
+  width: 100vw;
+}
+main {
+  margin: 0;
+}
+
+h1,
+.h1 {
+  @include h1;
+}
+h2,
+.h2 {
+  @include h2;
+}
+
+p,
+.p {
+  @include p;
+}
+
+strong,
+.strong {
+  font-size: 1.2em;
+  line-height: 0.9;
+  font-weight: 700;
+}
+
+label,
+.label {
+  @include label;
+}
+
+.font-special {
+  font-family: $font-special;
+}
+
+// text-align
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+// backgrounds
+.background-color-lightest {
+  background-color: $color-lightest;
+}
+.background-color-special {
+  background-color: $color-special;
+}
+.background-color-darkest {
+  background-color: $color-darkest;
+}
+
+// text-colors
+.color-special {
+  color: $color-special;
+}
+.color-special-light {
+  color: $color-special-light;
+}
+.color-darkest {
+  color: $color-darkest;
+}
+.color-dark {
+  color: $color-dark;
+}
+.color-light {
+  color: $color-light;
+}
+.color-lightest {
+  color: $color-lightest;
+}
+.color-special {
+  color: $color-special;
+}
+.color-special-light {
+  color: $color-special-light;
+}
+.color-attention {
+  color: $color-attention;
+}
+.color-attention-light {
+  color: $color-attention-light;
+}

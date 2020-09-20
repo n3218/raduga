@@ -1,10 +1,10 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 
-import "./app.scss"
+import "./_common.scss"
 import HomePage from "./pages/homepage/homepage"
 import Schedule from "./pages/schedule/schedule"
-import About from "./pages/about/about"
+import Programs from "./pages/programs/programs"
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer"
 import SignInSignUp from "./pages/signin-signup/signin-signup"
@@ -55,7 +55,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/schedule" component={Schedule} />
-            <Route path="/about" component={About} />
+            <Route path="/programs" component={Programs} />
             <Route path="/signin" component={SignInSignUp} />
             <Route path="/tuition" component={Tuition} />
           </Switch>

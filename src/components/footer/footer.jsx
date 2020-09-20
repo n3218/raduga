@@ -8,7 +8,7 @@ const Footer = () => {
       <nav className={s.nav}>
         <Link to="maps.google.com">direction</Link>
         <span>©2020 by The Russian Learning Center</span>
-        <Link to="/about">Our Classes</Link>
+        <Link to="/programs">Programs</Link>
         <Link to="/schedule">Schedule</Link>
         <span>123-456-7890</span>
       </nav>

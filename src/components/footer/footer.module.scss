@@ -1,6 +1,8 @@
+@import "../../_common-variables.scss";
+
 .footer {
-  background-color: #b2ebf2;
-  border-top: 15px solid #ff5722;
+  background-color: $color-light;
+  border-top: 15px solid $color-special-light;
   padding: 5px 20px;
   display: flex;
   justify-content: space-evenly;

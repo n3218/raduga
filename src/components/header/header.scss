@@ -1,0 +1,53 @@
+@import "../../_common-variables.scss";
+
+.logo-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    width: 80px;
+    height: auto;
+    margin: 5px 30px;
+  }
+
+  .slogan {
+    font-weight: 200;
+    font-size: 2em;
+    letter-spacing: -2px;
+    color: $color-special-light;
+    margin-right: 50px;
+  }
+}
+
+.nav {
+  width: 100%;
+  background-color: $color-darkest;
+  border-bottom: 10px solid $color-light;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  > * {
+    font-size: 1.1em;
+    font-weight: 200;
+    color: $color-lightest;
+    font-family: $font-special;
+    text-decoration: none;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: block;
+
+    &:last-child {
+      margin-right: 50px;
+    }
+    // border-top: 10px solid transparent;
+    &:hover {
+      background-color: $color-light;
+      color: $color-special;
+      // border-top: 10px solid $color-attention-light;
+    }
+  }
+}

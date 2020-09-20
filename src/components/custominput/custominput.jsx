@@ -7,7 +7,7 @@ const CustomInput = ({ handleChange, label, name, ...other }) => {
     <div className="inputgroup">
       <input onChange={handleChange} autoComplete={label} name={name} {...other} />
       {label ? (
-        <label htmlFor={name} className="special label">
+        <label htmlFor={name} className="label">
           {label}
         </label>
       ) : null}

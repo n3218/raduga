@@ -1,0 +1,41 @@
+$font-regular: Roboto, sans-serif;
+$font-special: Oswald, sans-serif;
+
+$color-darkest: #43658b;
+$color-dark: #8d93ab;
+$color-light: #d6e0f0;
+$color-lightest: #f1f3f8;
+$color-special: #597cb8;
+$color-special-light: #b4d232;
+$color-attention: #dd2c00;
+$color-attention-light: #ff6663;
+
+@mixin h1 {
+  font-weight: 800;
+  font-size: 3em;
+  letter-spacing: -3px;
+  color: $color-special;
+  margin-bottom: 0;
+}
+
+@mixin h2 {
+  font-weight: 200;
+  font-size: 2em;
+  color: $color-dark;
+  margin: 0 0 20px 0;
+  font-family: $font-special;
+}
+
+@mixin p {
+  font-size: 1em;
+  line-height: 1.4;
+  font-weight: 200;
+  color: $color-dark;
+}
+
+@mixin label {
+  font-family: $font-special;
+  font-weight: 200;
+  font-size: 1em;
+  color: $color-dark;
+}

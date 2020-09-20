@@ -4,7 +4,7 @@ import "./custombutton.scss"
 
 const CustomButton = ({ children, ...other }) => {
   return (
-    <button className="scale custombutton" {...other}>
+    <button className="custombutton" {...other}>
       {children}
     </button>
   )

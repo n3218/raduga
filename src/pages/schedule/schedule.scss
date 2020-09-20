@@ -1,3 +1,5 @@
+@import "../../common-variables";
+
 .addClassForm {
   margin-top: 60px;
   display: flex;
@@ -11,10 +13,10 @@
     flex: 1 1 auto;
     width: auto;
     padding: 4px;
-    background-color: #e4f9ff !important;
+    background-color: $color-lightest;
     border: 0;
     border-bottom: 1px solid #8d99ae;
-    font-size: 1.2em;
+    font-size: 0.8em;
   }
 
   .inputgroup {
@@ -50,24 +52,22 @@
   }
 }
 
-.scheduleTable {
+.schedule-table {
   width: 100%;
   tr {
     &:nth-child(odd) {
-      background-color: white !important;
+      background-color: $color-lightest;
     }
-    td,
     th {
+      @include label;
+      background-color: white;
+    }
+    td {
       text-align: center;
       min-width: 80px;
-      // height: 30px;
-      flex: 0 1 auto; // flex-grow, flex-shrink, flex-basis
-      // width: 100%;
-      padding: 14px;
-      font-size: 1.2em;
-      color: #577399;
-      border-bottom: 1px solid #ddd;
-      border-right: 1px solid #ddd;
+      padding: 8px;
+      font-size: 0.8em;
+      color: $color-darkest;
       &.text-left {
         text-align: left;
       }
