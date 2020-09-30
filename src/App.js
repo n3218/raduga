@@ -1,15 +1,15 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 
-import "./_common.scss"
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
+import SignInSignUp from "./pages/signin-signup/signin-signup"
 import HomePage from "./pages/homepage/homepage"
-import Schedule from "./pages/schedule/schedule"
+import { default as Schedule } from "./pages/schedule/schedule.container"
 import Programs from "./pages/programs/programs"
 import Header from "./components/header/header"
 import Footer from "./components/footer/footer"
-import SignInSignUp from "./pages/signin-signup/signin-signup"
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
 import Tuition from "./pages/tuition/tuition"
+import "./_common.scss"
 
 class App extends React.Component {
   constructor() {

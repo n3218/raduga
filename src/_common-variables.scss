@@ -7,6 +7,7 @@ $color-light: #d6e0f0;
 $color-lightest: #f1f3f8;
 $color-special: #597cb8;
 $color-special-light: #b4d232;
+$color-special-dark: #a8cc06;
 $color-attention: #dd2c00;
 $color-attention-light: #ff6663;
 
@@ -36,6 +37,13 @@ $color-attention-light: #ff6663;
 @mixin label {
   font-family: $font-special;
   font-weight: 200;
-  font-size: 1em;
+  font-size: 0.8em;
   color: $color-dark;
+}
+
+@mixin cell-text {
+  padding: 10px 4px;
+  font-size: 0.8em;
+  color: $color-darkest;
+  font-weight: 200;
 }

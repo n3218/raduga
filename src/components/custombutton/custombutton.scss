@@ -10,6 +10,23 @@
   font-size: 0.8em;
   margin-right: 20px;
   margin-bottom: 10px;
+
+  &.save,
+  &.edit {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &.edit {
+    background-color: $color-special-dark;
+    border: 1px solid $color-special-light;
+    &:hover {
+      border: 1px solid $color-special-dark;
+      color: $color-special-dark;
+    }
+  }
+
   &:hover {
     color: $color-attention;
     border: 1px solid $color-attention;
