@@ -11,9 +11,16 @@
   margin-right: 20px;
   margin-bottom: 10px;
 
-  &.save,
-  &.edit {
-    min-width: 100%;
+  &.edit,
+  &.delete {
+    width: 30px;
+    min-width: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  &.save {
+    width: 60px;
+    min-width: 60px;
     margin: 0;
     padding: 0;
   }

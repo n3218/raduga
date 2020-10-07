@@ -2,7 +2,7 @@
 
 .schedule-table {
   display: grid;
-  grid-template-columns: 100px 100px 20% 100px 100px auto 40px;
+  grid-template-columns: 100px 80px 20% 80px 15% 70px auto 30px 30px 60px;
   grid-template-rows: auto;
   width: 100%;
 
@@ -18,9 +18,9 @@
 
   .schedule-table-cell {
     @include cell-text;
-    min-width: 80px;
+    border-right: 1px solid $color-light;
 
-    &:nth-child(n + 8):nth-child(-n + 13) {
+    &:nth-child(n + 10):nth-child(-n + 20) {
       background-color: #fafafa;
       border-bottom: 1px solid $color-light;
     }

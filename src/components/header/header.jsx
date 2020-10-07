@@ -1,21 +1,27 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons"
 
 import "./header.scss"
 
 const Header = ({ currentUser, logout }) => {
   return (
     <header>
-      <div className="logo-container">
+      <div className="header-container">
         <Link to="/">
-          <img className="logo" src="/assets/logo-transparent.png" alt="Raduga school logo" />
+          <img className="header-logo" src="/assets/logo-transparent.png" alt="Raduga school logo" />
         </Link>
         <div>
-          <div className="slogan">The Russian Learning Center</div>
-          <div className="color-dark font-special">Working today for a brighter, and better tomorrow</div>
+          <div className="header-title">The Russian Learning Center</div>
+          <div className="header-slogan">Working today for a brighter, and better tomorrow</div>
         </div>
-        <div>
-          <div>Dublin, CA</div>
+        <div className="header-login-container">
+          <div className="p">
+            <FontAwesomeIcon icon={faMapMarkedAlt} />
+            {"  "}
+            <span>Dublin, CA</span>
+          </div>
           <div>{currentUser ? <div onClick={() => logout()}>Sign Out</div> : <Link to="/signin">Sign In</Link>}</div>
         </div>
       </div>

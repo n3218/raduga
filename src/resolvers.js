@@ -2,31 +2,33 @@ import { gql } from "apollo-boost"
 
 export const typeDefs = gql`
   extend type Query {
-    updatingSubject: Subject
+    aaaaddSubject: Subject
+    uuuupdateSubject: Subject
   }
 
   extend type Mutation {
-    SeUpdatingSubject(id: ID): Subject
+    UUUUpdateSubject(id: ID): Subject
   }
 `
 
-const UPDATING_SUBJECT = gql`
+const UPDATE_SUBJECT = gql`
   {
-    updatingSubject @client
+    uuuuuupdateSubject @client
   }
 `
 
 export const resolvers = {
   Mutation: {
-    seUpdatingSubject: (_root, _args, { cache }, _info) => {
-      const { updatingSubject } = cache.readQuery({
-        query: UPDATING_SUBJECT
+    seUpdateSubject: (_root, _args, { cache }, _info) => {
+      const { updateSubject } = cache.readQuery({
+        query: UPDATE_SUBJECT
       })
+
       cache.writeQuery({
-        query: UPDATING_SUBJECT,
-        data: { updatingSubject: { ..._args } }
+        query: UPDATE_SUBJECT,
+        data: { updateSubject: { ..._args } }
       })
-      return updatingSubject
+      return updateSubject
     }
   }
 }

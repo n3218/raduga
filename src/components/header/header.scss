@@ -1,23 +1,25 @@
 @import "../../_common-variables.scss";
 
-.logo-container {
+.header-container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px 15px;
 
-  .logo {
+  .header-logo {
     width: 80px;
     height: auto;
-    margin: 5px 30px;
   }
 
-  .slogan {
+  .header-title {
     font-weight: 200;
     font-size: 2em;
     letter-spacing: -2px;
     color: $color-special-light;
-    margin-right: 50px;
+  }
+  .header-slogan {
+    @include p;
   }
 }
 
